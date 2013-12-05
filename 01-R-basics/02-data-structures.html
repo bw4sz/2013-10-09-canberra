@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>Undestanding basic data types in R</title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+
+
+
+
+</head>
+
+<body>
+<h1>Undestanding basic data types in R</h1>
+
+<ul>
+<li><p>To make the best of the R language, you&#39;ll need a strong understanding of the basic data types and data structures and how to operate on those.</p></li>
+<li><p><strong>Very Important</strong> to understand because these are the things you will manipulate on a day-to-day basis in R. Most common source of frustration among beginners.</p></li>
+<li><p>Everything in <code>R</code> is an object. </p></li>
+</ul>
+
+<p><code>R</code> has 5 basic atomic classes</p>
+
+<ul>
+<li>character</li>
+<li>numeric (real or decimal)</li>
+<li>integer</li>
+<li>logical</li>
+<li>complex</li>
+</ul>
+
+<table><thead>
+<tr>
+<th>Example</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>&ldquo;a&rdquo;, &ldquo;swc&rdquo;</td>
+<td>character</td>
+</tr>
+<tr>
+<td>2, 15.5</td>
+<td>numeric</td>
+</tr>
+<tr>
+<td>2 (usually add a <code>L</code> at end to denote integer)</td>
+<td>integer</td>
+</tr>
+<tr>
+<td><code>TRUE</code>, <code>FALSE</code></td>
+<td>logical</td>
+</tr>
+<tr>
+<td>1+4i</td>
+<td>complex</td>
+</tr>
+</tbody></table>
+
+<pre><code class="coffee">typeof() # what is it?
+length() # how long is it? What about two dimensional objects?
+attributes() # does it have any metadata?
+</code></pre>
+
+<p>R also has many data structures. These include</p>
+
+<ul>
+<li>vector</li>
+<li>list</li>
+<li>matrix</li>
+<li>data frame</li>
+<li>factors</li>
+<li>tables</li>
+</ul>
+
+<h3>Vectors</h3>
+
+<p>A vector is the most common and basic data structure in <code>R</code> and is pretty much the workhorse of R. Vectors can be of two types:</p>
+
+<ul>
+<li>atomic vectors</li>
+<li>lists</li>
+</ul>
+
+<p><strong>Atomic Vectors</strong>
+A vector can be a vector of characters, logical, integers or numeric.</p>
+
+<p>Create an empty vector with <code>vector()</code></p>
+
+<pre><code>x &lt;- vector()
+# with a pre-defined length
+x &lt;- vector(length = 10)
+# with a length and type
+vector(&quot;character&quot;, length = 10)
+vector(&quot;numeric&quot;, length = 10)
+vector(&quot;integer&quot;, length = 10)
+vector(&quot;logical&quot;, length = 10)
+</code></pre>
+
+<p>The general pattern is <code>vector(class of object, length)</code>.  You can also create vectors by concactenating them using the <code>c()</code> function.</p>
+
+<p>Various examples:</p>
+
+<pre><code>x &lt;- c(1, 2, 3)
+</code></pre>
+
+<p>x is a numeric vector. These are the most common kind. They are numeric objects and are treated as double precision real numbers. To explicitly create integers, add a <code>L</code> at the end.</p>
+
+<pre><code>x1 &lt;- c(1L, 2L, 3L)
+</code></pre>
+
+<p>You can also have logical vectors. </p>
+
+<pre><code>y &lt;- c(TRUE, TRUE, FALSE, FALSE)
+</code></pre>
+
+<p>Finally you can have character vectors:</p>
+
+<pre><code class="coffee">z &lt;- c(&quot;Alec&quot;, &quot;Dan&quot;, &quot;Rob&quot;, &quot;Karthik&quot;)
+</code></pre>
+
+<p><strong>Examine your vector</strong>  </p>
+
+<pre><code>typeof(z)
+length(z)
+class(z)
+str(z)
+</code></pre>
+
+<p>Question: Do you see property that&#39;s common to all these vectors above?</p>
+
+<p><strong>Add elements</strong></p>
+
+<pre><code>z &lt;- c(z, &quot;Annette&quot;)
+z
+</code></pre>
+
+<p>More examples of vectors</p>
+
+<pre><code>x &lt;- c(0.5, 0.7)
+x &lt;-c (TRUE, FALSE)
+x &lt;- c(T,F)
+x &lt;- c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;)
+x &lt;- 9:100
+x &lt;- c(i+0i, 2+4i)
+</code></pre>
+
+<p>You can also create vectors as sequence of numbers</p>
+
+<pre><code>series &lt;- 1:10
+seq(10)
+seq(1, 10, by = 0.1)
+</code></pre>
+
+<p><strong>Other objects</strong></p>
+
+<p><code>Inf</code> is infinity. You can have positive or negative infinity.</p>
+
+<pre><code> 1/0
+# [1] Inf
+ 1/Inf
+# [1] 0
+</code></pre>
+
+<p><code>NaN</code> means Not a number. it&#39;s an undefined value.</p>
+
+<pre><code>0/0
+NaN.
+</code></pre>
+
+<p>Each object has an attribute. Attribues can be part of an object of R. These include </p>
+
+<ul>
+<li>names</li>
+<li>dimnames</li>
+<li>length</li>
+<li>class</li>
+<li>attributes (contain metadata)</li>
+</ul>
+
+<p>For a vector, <code>length(vector_name)</code> is just the total number of elements.</p>
+
+<p><strong>What happens when you mix types?</strong></p>
+
+<p>R will create a resulting vector that is the least common denominator. The coercion will move towards the one that&#39;s easiest to coerce to.</p>
+
+<p><strong>Guess what the following do without running them first</strong></p>
+
+<pre><code>xx &lt;- c(1.7, &quot;a&quot;) 
+xx &lt;- c(TRUE, 2) 
+xx &lt;- c(&quot;a&quot;, TRUE) 
+</code></pre>
+
+<p>This is called implicit coercion.  You can also coerce vectors explicitly using the <code>as.&lt;class_name&gt;</code>. Example</p>
+
+<pre><code>as.numeric()
+as.character()
+</code></pre>
+
+<p>When you coerce an existing numeric vector with <code>as.numeric()</code>, it does nothing.</p>
+
+<pre><code>x &lt;- 0:6
+as.numeric(x)
+as.logical(x) 
+as.character(x)
+as.complex(x) 
+</code></pre>
+
+<p>Sometimes coercions, especially nonsensical ones won’t work.</p>
+
+<pre><code>x &lt;- c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;)
+as.numeric(x)
+as.logical(x)
+# both don&#39;t work
+</code></pre>
+
+<p><strong>Sometimes there is implicit conversion</strong></p>
+
+<pre><code>&gt; 1 &lt; &quot;2&quot;
+[1] TRUE
+&gt; &quot;1&quot; &gt; 2
+[1] FALSE
+&gt; 
+</code></pre>
+
+<h2>Matrix</h2>
+
+<p>Matrices are a special vector in R. They are not a separate class of object but simply a vector but now with dimensions added on to it. Matrices have rows and columns. </p>
+
+<pre><code>m &lt;- matrix(nrow = 2, ncol = 2)
+m
+dim(m)
+same as 
+attributes(m)
+</code></pre>
+
+<p>Matrices are constructed columnwise. </p>
+
+<pre><code>m &lt;- matrix(1:6, nrow=2, ncol =3)
+</code></pre>
+
+<p>Other ways to construct a matrix</p>
+
+<pre><code>m &lt;- 1:10
+dim(m) &lt;- c(2,5)
+</code></pre>
+
+<p>This takes a vector and transform into a matrix with 2 rows and 5 columns.</p>
+
+<p>Another way is to bind columns or rows using <code>cbind()</code> and <code>rbind()</code>.</p>
+
+<pre><code>x &lt;- 1:3
+y &lt;- 10:12
+cbind(x,y)
+# or 
+rbind(x,y)
+</code></pre>
+
+<hr/>
+
+<h2>List</h2>
+
+<p>In R lists act as containers. Unlike atomic vectors, its contents are not restricted to a single mode and can encompass any data type. Lists are sometimes called recursive vectors, because a list can contain other lists. This makes them fundamentally different from atomic vectors. </p>
+
+<p>List is a special vector. Each element can be a different class.</p>
+
+<p>Create lists using <code>list</code> or coerce other objects using <code>as.list()</code></p>
+
+<pre><code>x &lt;- list(1, &quot;a&quot;, TRUE, 1+4i)
+</code></pre>
+
+<pre><code>x &lt;- 1:10
+x &lt;- as.list(x)
+length(x)
+</code></pre>
+
+<p>What is the class of <code>x[1]</code>?<br/>
+how about <code>x[[1]]</code>?</p>
+
+<pre><code>xlist &lt;- list(a = &quot;Karthik Ram&quot;, b = 1:10, data = head(iris))
+</code></pre>
+
+<p>what is the length of this object?
+what about its structure?</p>
+
+<p>List can contain as many lists nested inside.</p>
+
+<pre><code>temp &lt;- list(list(list(list())))
+temp
+is.recursive(temp)
+</code></pre>
+
+<p>Lists are extremely useful inside functions. You can &ldquo;staple&rdquo; together lots of different kinds of results into a single object that a function can return.</p>
+
+<p>It doesn&#39;t print out like a vector. Prints a new line for each element.</p>
+
+<p>Elements are indexed by double brackets. Single brackets will still return a(nother) list.</p>
+
+<hr/>
+
+<h2>Factors</h2>
+
+<p>Factors are special vectors that represent categorical data. Factors can be ordered or unordered and are important when for modelling functions such as <code>lm()</code> and <code>glm()</code> and also in plot methods.</p>
+
+<p>Factors can only contain pre-defined values.</p>
+
+<p>Factors are pretty much integers that have labels on them.  While factors look (and often behave) like character vectors, they are actually integers under the hood, and you need to be careful when treating them like strings. Some string methods will coerce factors to strings, while others will throw an error.</p>
+
+<p>Sometimes factors can be left unordered. Example: male, female</p>
+
+<p>Other times you might want factors to be ordered (or ranked). Example: low, medium, high. </p>
+
+<p>Underlying it&#39;s represented by numbers 1,2,3.</p>
+
+<p>They are better than using simple integer labels because factors are what are called self describing. male and female is more descriptive than 1s and 2s. Helpful when there is no additional metadata.</p>
+
+<p>Which is male? 1 or 2? You wouldn&#39;t be able to tell with just integer data. Factors have this information built in.</p>
+
+<p>Factors can be created with <code>factor()</code>. Input is a character vector.</p>
+
+<pre><code>x &lt;- factor(c(&quot;yes&quot;, &quot;no&quot;, &quot;no&quot;, &quot;yes&quot;, &quot;yes&quot;))
+x
+</code></pre>
+
+<p><code>table(x)</code> will return a frequency table.</p>
+
+<p><code>unclass(x)</code> strips out the class information.</p>
+
+<p>In modeling functions, importnat to know whta baseline levels is.
+This is the first factor but by default the ordering is determined by alphabetical order of words entered. You can change this by speciying the levels.</p>
+
+<pre><code>x &lt;- factor(c(&quot;yes&quot;, &quot;no&quot;, &quot;yes&quot;), levels = c(&quot;yes&quot;, &quot;no&quot;))
+</code></pre>
+
+<h2>Data frame</h2>
+
+<p>A data frame is a very important data type in R. It&#39;s pretty much the de facto data structure for most tabular data and what we use for statistics.</p>
+
+<p>data frames can have additional attributes such as <code>rownames()</code>. This can be useful for annotating data, like subject_id or sample_id. But most of the time they are not used.</p>
+
+<p>e.g. <code>rownames()</code>
+useful for annotating data. subject names.
+other times they are not useful.</p>
+
+<ul>
+<li><p>Data frames Usually created by read.csv and read.table.</p></li>
+<li><p>Can convert to <code>matrix</code> with <code>data.matrix()</code></p></li>
+<li><p>Coercion will force and not always what you expect.</p></li>
+<li><p>Can also create with <code>data.frame()</code> function.</p></li>
+</ul>
+
+<p>With and data frame, you can do <code>nrow(df)</code> and <code>ncol(df)</code>
+rownames are usually 1..n.</p>
+
+<p><strong>Combining data frames</strong></p>
+
+<pre><code>df &lt;- data.frame(id = letters[1:10], x = 1:10, y = rnorm(10))
+&gt; df
+   id  x          y
+1   a  1 -0.3913992
+2   b  2 -0.8607609
+3   c  3  1.1234612
+4   d  4 -0.8283688
+5   e  5 -0.8785586
+6   f  6  0.2116839
+7   g  7 -0.3795995
+8   h  8 -0.5992272
+9   i  9  0.3203085
+10  j 10  0.2901185
+</code></pre>
+
+<p><code>cbind(df, data.frame(z = 4))</code></p>
+
+<p>When you combine column wise, only row numbers need to match. If you are adding a vector, it will get repeated.</p>
+
+<p><strong>Useful functions</strong><br/>
+<code>head()</code> - see first 5 rows
+<code>tail()</code> - see last 5 rows
+<code>dim()</code> - see dimensions
+<code>nrow()</code> - number of rows
+<code>ncol()</code> - number of columns
+<code>str()</code> - structure of each column
+<code>names()</code> - will list column names for a data.frame (or any object really).</p>
+
+<p>A data frame is a special type of list where every element of a list has same length.</p>
+
+<p>See that it is actually a special list:</p>
+
+<pre><code>&gt; is.list(iris)
+[1] TRUE
+&gt; class(iris)
+[1] &quot;data.frame&quot;
+ &gt; 
+</code></pre>
+
+<h2></h2>
+
+<p><strong>Naming objects</strong>  </p>
+
+<p>Other R objects can also have names not just true for data.frames. Adding names is helpful since it&#39;s useful for readable code and self describing objects.</p>
+
+<pre><code>x &lt;- 1:3
+names(x) &lt;- c(&quot;karthik&quot;, &quot;ram&quot;, &quot;rocks&quot;)
+x
+</code></pre>
+
+<p>Lists can also have names.</p>
+
+<pre><code>x &lt;- as.list(1:10)
+names(x) &lt;- letters[seq(x)]
+x
+
+
+Finally matrices can have names and these are called `dimnames`
+
+m &lt;- matrix(1:4, nrow = 2)
+dimnames(m) &lt;- list(c(&quot;a&quot;, &quot;b&quot;), c(&quot;c&quot;, &quot;d&quot;))
+# first element = rownames
+# second element = colnames
+
+---
+
+
+## Missing values
+
+dennoted by `NA` and/or `NaN` for undefined mathematical operations.
+
+</code></pre>
+
+<p>is.na()
+is.nan()</p>
+
+<pre><code>
+check for both.
+
+NA values have a class. So you can have both an integer NA and a missing character NA.
+
+Nan is also NA. But not the other way around.
+
+</code></pre>
+
+<p>x &lt;- c(1,2, NA, 4, 5)</p>
+
+<pre><code>
+`is.na(x)` returns logical.
+shows third
+
+`is.nan(x)`
+ # none are NaN.
+
+</code></pre>
+
+<p>x &lt;- c(1,2, NA, NaN, 4, 5)</p>
+
+<pre><code>
+`is.na(x)` shows 2 TRUE.
+`is.nan(x)` shows 1 TRUE
+
+---
+
+# Refresher on data types
+
+![](data-types.png)
+
+
+
+
+
+
+
+
+</code></pre>
+
+</body>
+
+</html>
+
