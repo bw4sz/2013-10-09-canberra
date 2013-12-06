@@ -1,3 +1,4 @@
 *.key
 08-reproducible-research/knitr_notes.md
 
+.Rproj.user

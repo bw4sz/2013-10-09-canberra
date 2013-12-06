@@ -4,7 +4,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
-<title><strong>Introduction to R</strong></title>
+<title>Probabilities and Distributions</title>
 
 <style type="text/css">
 body, td {
@@ -178,232 +178,89 @@ hljs.initHighlightingOnLoad();
 </head>
 
 <body>
-<h1><strong>Introduction to R</strong></h1>
+<h1>Probabilities and Distributions</h1>
 
-<p>R is a versatile, open source programming/scripting language that&#39;s useful both for statistics and data science. </p>
+<p>Generating random samples from a normal distribution</p>
 
-<ul>
-<li>Public domain software </li>
-<li>Superior (if not just comparable) to commercial alternatives</li>
-<li>Available on all platforms</li>
-<li>Not just for statistics, but also general purpose programming</li>
-<li>Is object oriented and functional</li>
-<li>Large and growing community of peers</li>
-</ul>
+<p>It is often very useful to be able to generate a sample from a specific distribution. To generate a sample of size 100 from a standard normal distribution (with mean 0 and standard deviation 1) we use the rnorm function. We only have to supply the n (sample size) argument since mean 0 and standard deviation 1 are the default values for the mean and stdev arguments.</p>
 
-<p><strong>How to run <code>R</code></strong>  </p>
-
-<p>Within R studio, there are 4 parts to R</p>
-
-<ul>
-<li>Console: Where commands are run</li>
-<li>Scripts: Where commands are written</li>
-<li>Environments: Where objects are stored</li>
-<li>Plots: Where data is viewed</li>
-</ul>
-
-<h2>Running Commands in the Console</h2>
-
-<p>The R console returns objects based on functions and expressions.</p>
-
-<p><img src="http://www.lifewithlevi.com/wp-content/uploads/2012/02/Happy-Squirrel-Driking.jpg" alt="Drawing" style="width: 100px;"/> <strong>Try It!</strong></p>
-
-<hr/>
-
-<ol>
-<li><p>What is 17 multiplied by 365?</p></li>
-<li><p>What is 7<sup>3?</sup></p></li>
-</ol>
-
-<h2>Creating Objects</h2>
-
-<p>All expressions can be saved as an object, this is the fundamental unit in R. To create an object from an expression we use the assignment operater &lt;-</p>
-
-<p><strong>Assignment operator</strong>
-<code>&lt;-</code> is the assignment operator. Assigns values on the right to objects on the left.</p>
-
-<pre><code class="r">a &lt;- 12 * 180
-a
+<pre><code class="r">norm &lt;- rnorm(100)
+norm
 </code></pre>
 
-<pre><code>## [1] 2160
-</code></pre>
-
-<p>The object a is now saved as the output of the expression 12*180</p>
-
-<p>#Maybe put a box around this?</p>
-
-<p><em>R tips</em></p>
-
-<p><em>Use <code>#</code> before an expression signs to &#39;comment&#39; your script. Good scripts and (homework) have comments before every major block of code. Anything to the right of a <code>#</code> is ignored.</em></p>
-
-<h2>Expressions using objects</h2>
-
-<p>The beauty of R is that objects can be combined into other, larger, and more complex objects!</p>
-
-<pre><code class="r">a &lt;- 8 * 10
-b &lt;- 2 * 10
-c &lt;- a * b
-c
-</code></pre>
-
-<pre><code>## [1] 1600
-</code></pre>
-
-<pre><code class="r"># Equivalent to
-c &lt;- 8 * 10 * 2 * 10
-c
-</code></pre>
-
-<pre><code>## [1] 1600
+<pre><code>##   [1] -0.63456 -0.57886  1.68228  1.33340 -0.86267  0.93719  0.47246
+##   [8] -2.43817  0.34920  0.44248  1.01323 -0.92200  0.66717  1.81362
+##  [15] -0.22160  0.43769 -1.63710  0.02365  0.96546  1.70067  0.11775
+##  [22]  1.38804 -0.07241  0.22388  1.34210 -1.58053 -0.97429 -0.15902
+##  [29] -0.69787  2.52081  0.35395  1.01852  0.05577  1.25033 -1.10622
+##  [36]  0.10463  0.25839  0.43501 -0.92816  0.97412 -0.24990 -0.47178
+##  [43]  0.48782 -0.89487 -0.03540 -1.36953 -0.73619 -0.60991 -0.25363
+##  [50]  1.33434 -1.85498 -1.20528 -0.10509 -0.15665 -0.41716 -0.15326
+##  [57] -0.54807 -0.29925  1.53662  0.95271  1.06218 -1.11212 -0.82446
+##  [64]  1.30715  0.65951  0.94922  1.11404  1.63760 -1.74180  0.71059
+##  [71]  0.77183  0.32674 -1.23963  0.76493  0.41274 -0.78568 -0.78058
+##  [78]  0.02567  0.16915 -0.29749 -0.89506  1.13275 -0.70355  1.11972
+##  [85] -0.84441  0.45923 -2.89235 -0.16611  1.10538  0.52104 -0.39094
+##  [92] -0.89882 -1.57878 -0.70863  0.45567  0.49140  1.60069  0.06814
+##  [99]  0.60811  0.76755
 </code></pre>
 
 <h2><strong>Try It!</strong></h2>
 
 <ol>
-<li>Create an object that is your age. Create another object that is the age of the person to your right. Find the difference between these objects. </li>
+<li>Look up the rnorm function in help screen, what are three arguments?</li>
+<li><p>Draw 100 random numbers from a normal distribution with a mean of 3 and an sd of 2, assign it to an object &ldquo;a&rdquo;</p></li>
+<li><p>Find the mean number if your draw, how close was it to the true mean</p></li>
+<li><p>Using the ?? tool, lookup the function for standard deviation <em>Hint</em> the ?? tool should not include spaces.</p></li>
+<li><p>Drawing on what we learned last time, if norm is a vector of 100 random normal draws, what is the syntax to get the 13th number in the vector?</p></li>
 </ol>
 
-<h2>Combining objects - Vectors!</h2>
+<h2>Generating random samples from other distributions</h2>
 
-<p>R has 5 common data structures, we will learn today about the simplest - vectors.</p>
+<p>R has many distributions in the base package, including all commonly used in biological analysis. Depending on the distribution, each function has its own set of parameter arguments. For example, the rpois function is the random number generator for the Poisson distribution and it has only the parameter argument lambda. The rbinom function is the random number generator for the binomial distribution and it takes two arguments: size and prob. The size argument specifies the number of Bernoulli trials and the prob argument specifies the probability of a success for each trial. </p>
 
-<p>Vectors are one dimensional strings of numbers, characters of objects</p>
+<p>For now, its sufficient to know that a possion distribution is commonly used for count data, and has only paramater lambda, which is both the expected mean and var</p>
 
-<p>A vector is made using the function c(), explained later today.</p>
-
-<pre><code class="r"># Combine numbers into a vector
-
-a &lt;- c(3, 4, 5)
-a
-</code></pre>
-
-<pre><code>## [1] 3 4 5
-</code></pre>
-
-<pre><code class="r">
-# Combine characters into a vector
-
-b &lt;- c(&quot;q&quot;, &quot;r&quot;, &quot;s&quot;)
-b
-</code></pre>
-
-<pre><code>## [1] &quot;q&quot; &quot;r&quot; &quot;s&quot;
-</code></pre>
-
-<pre><code class="r">
-# Combine objects into a vector
-a &lt;- 4 * 7
-b &lt;- 6 * 5
-g &lt;- 9 * 2
-
-d &lt;- c(a, b, g)
-d
-</code></pre>
-
-<pre><code>## [1] 28 30 18
-</code></pre>
-
-<p><strong>Properties of Vectors</strong></p>
-
-<p>Vectors have positions, these positions are ordered and can be called using name_vector[position]</p>
-
-<pre><code class="r">a &lt;- 8 * 9
-b &lt;- 2 * 3
-d &lt;- c(a, b)
-
-d[1]
-</code></pre>
-
-<pre><code>## [1] 72
-</code></pre>
-
-<pre><code class="r">d[2]
-</code></pre>
-
-<pre><code>## [1] 6
-</code></pre>
+<p>Generating a random sample from a Poisson distribution with lambda=3</p>
 
 <h2><strong>Try It!</strong></h2>
 
 <ol>
-<li><p>What is the 9th and 12th position of seq(1,27,.5)? </p></li>
-<li><p>Bonus! Can you find those positions simultaneously</p></li>
+<li>Draw 100 values from a poisson with a lambda =3, assign it to an object a</li>
+<li>Draw 1000 values from a poisson with a lambda, assign it to an object b</li>
+<li>Find the means of both draws, what is the difference in means?</li>
 </ol>
 
-<h2>Functions</h2>
+<h2>Other probability and distribution functions</h2>
 
-<p>A function is a saved object that performs a task given inputs. All functions are made up of smaller objects. Functions are used in the format output&lt;-name_of_function(inputs)</p>
-
-<pre><code class="r"># The sum of a vector
-sum(c(3, 4, 5))
-</code></pre>
-
-<pre><code>## [1] 12
-</code></pre>
-
-<pre><code class="r">
-# The mean of a vector
-mean(c(3, 4, 5))
-</code></pre>
-
-<pre><code>## [1] 4
-</code></pre>
-
-<pre><code class="r">
-# Functions can act on an object
-a &lt;- c(3, 4, 5)
-mean(a)
-</code></pre>
-
-<pre><code>## [1] 4
-</code></pre>
-
-<h2>How to use a function?</h2>
-
-<p>All functions come with a help screen. It is critical that you learn to read the help screens since they provide important information on what the function does, how it works, and ususally sample examples at the very bottom.</p>
-
-<p><em>R tips</em></p>
-
-<p><em>While many R functions are easy to guess their name, most functions are abbreviated to save time and space, you can search for functions (only from installed packages) by using ??query, eg. ??robust with search for any functions whose help screens contain the word robust</em></p>
+<p>For each of the distributions there are four functions which will generate fundamental quantities of a distribution. Let&#39;s consider the normal distribution as an example. We have already given examples of the rnorm function which will generate a random sample from a specific normal distribution. The dnorm function will generate the density (or point) probability for a specific value for a normal distribution. This function is very useful for creating a plot of a density function of a distribution. In the list of the random number generator functions all the functions started with an &ldquo;r&rdquo;, similarly the density functions for all the distributions all start with a &ldquo;d&rdquo;.</p>
 
 <h2><strong>Try It!</strong></h2>
 
 <ol>
-<li><p>What is the median of 34, 16, 105, 27? <em>Hint</em> functions are often named intuitively.</p></li>
-<li><p>What does the function &#39;range&#39; do, what is sample example in the help file?</p></li>
-<li><p>Bonus! Is mean(4,5) different than mean(c(4,5))?</p></li>
+<li>What is the point probability for a -1.96 for a normal of mean =0, sd=1</li>
+<li>We want to make a sequence of numbers, based on a given interval, look up, using ??sequence, and find the function that does this. <em>Hint</em> it is in the base package</li>
+<li>Create a sequence beginning at 0 and ending at 4, with .2 intervals, save this as object x.</li>
 </ol>
 
-<h2>Packages</h2>
+<h1>An introduction to plotting - Univariate</h1>
 
-<p>We will be exploring functions in much greater detail throughout this course. Functions are the soul of R, that is why we use it. Functions are kept inside packages, some of which come preinstalled into R - others must be downloaded online</p>
-
-<p>To check out the wide world of packages: INSERT LINK and search with your favorite keyword! Ecology, paleo, dispersal, population modeling, economics!</p>
-
-<p>Often you will be asked to install a package to access a certain library of functions</p>
-
-<pre><code class="r"># To install any new package install.packages(&#39;picante&#39;)
-
-# pick a closeby mirror, say okay if it asks to create a new folder
+<pre><code class="r">dens &lt;- dnorm(x, 2, 0.5)
 </code></pre>
 
-<p><em>R tips</em></p>
+<pre><code>## Error: object &#39;x&#39; not found
+</code></pre>
 
-<p><em>Installing a package just download its to your computer. To actually use a function in R from an outside package you have to &ldquo;require&rdquo; it at the top of the script, this let&#39;s R know what packages to load in, and not waste time with all potential functions. Good scripts (and homeworks) have a series of require(name_of_library) at the top of the script in an orderly fashion</em></p>
+<pre><code class="r">plot(x, dnorm(des, 2, 0.5), type = &quot;l&quot;)
+</code></pre>
 
-<h2><strong>Try It!</strong> </h2>
+<pre><code>## Error: object &#39;x&#39; not found
+</code></pre>
 
-<ol>
-<li><p>Find a fascinating package in the search query. What is it? What is one interesting function?</p></li>
-<li><p>Install the package to your computer. </p>
+<h1>plotting the density function of a binomial distribution: Binom(30, .25)</h1>
 
-<pre><code></code></pre></li>
-</ol>
-
-<p><strong>Quitting R</strong></p>
-
-<p>type in <code>quit()</code> or <code>q()</code> and answer <code>Y</code> to quit. Always remember to save scripts. For now we will not save workspaces!</p>
+<p>y &lt;- 0:30
+plot(y, dbinom(y, 30, 0.25), type = &ldquo;h&rdquo;)</p>
 
 </body>
 
