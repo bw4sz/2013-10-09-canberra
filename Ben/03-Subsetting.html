@@ -200,117 +200,437 @@ hljs.initHighlightingOnLoad();
 
 <p>Data frames are usually read in from file, but R comes with many practice datasets. We will use the iris dataset, famously used by Fisher in 1936 (<a href="http://en.wikipedia.org/wiki/Iris_flower_data_set">http://en.wikipedia.org/wiki/Iris_flower_data_set</a>)</p>
 
-<h2>Exploring Data</h2>
+<pre><code class="r">iris
+</code></pre>
+
+<pre><code>##     Sepal.Length Sepal.Width Petal.Length Petal.Width    Species
+## 1            5.1         3.5          1.4         0.2     setosa
+## 2            4.9         3.0          1.4         0.2     setosa
+## 3            4.7         3.2          1.3         0.2     setosa
+## 4            4.6         3.1          1.5         0.2     setosa
+## 5            5.0         3.6          1.4         0.2     setosa
+## 6            5.4         3.9          1.7         0.4     setosa
+## 7            4.6         3.4          1.4         0.3     setosa
+## 8            5.0         3.4          1.5         0.2     setosa
+## 9            4.4         2.9          1.4         0.2     setosa
+## 10           4.9         3.1          1.5         0.1     setosa
+## 11           5.4         3.7          1.5         0.2     setosa
+## 12           4.8         3.4          1.6         0.2     setosa
+## 13           4.8         3.0          1.4         0.1     setosa
+## 14           4.3         3.0          1.1         0.1     setosa
+## 15           5.8         4.0          1.2         0.2     setosa
+## 16           5.7         4.4          1.5         0.4     setosa
+## 17           5.4         3.9          1.3         0.4     setosa
+## 18           5.1         3.5          1.4         0.3     setosa
+## 19           5.7         3.8          1.7         0.3     setosa
+## 20           5.1         3.8          1.5         0.3     setosa
+## 21           5.4         3.4          1.7         0.2     setosa
+## 22           5.1         3.7          1.5         0.4     setosa
+## 23           4.6         3.6          1.0         0.2     setosa
+## 24           5.1         3.3          1.7         0.5     setosa
+## 25           4.8         3.4          1.9         0.2     setosa
+## 26           5.0         3.0          1.6         0.2     setosa
+## 27           5.0         3.4          1.6         0.4     setosa
+## 28           5.2         3.5          1.5         0.2     setosa
+## 29           5.2         3.4          1.4         0.2     setosa
+## 30           4.7         3.2          1.6         0.2     setosa
+## 31           4.8         3.1          1.6         0.2     setosa
+## 32           5.4         3.4          1.5         0.4     setosa
+## 33           5.2         4.1          1.5         0.1     setosa
+## 34           5.5         4.2          1.4         0.2     setosa
+## 35           4.9         3.1          1.5         0.2     setosa
+## 36           5.0         3.2          1.2         0.2     setosa
+## 37           5.5         3.5          1.3         0.2     setosa
+## 38           4.9         3.6          1.4         0.1     setosa
+## 39           4.4         3.0          1.3         0.2     setosa
+## 40           5.1         3.4          1.5         0.2     setosa
+## 41           5.0         3.5          1.3         0.3     setosa
+## 42           4.5         2.3          1.3         0.3     setosa
+## 43           4.4         3.2          1.3         0.2     setosa
+## 44           5.0         3.5          1.6         0.6     setosa
+## 45           5.1         3.8          1.9         0.4     setosa
+## 46           4.8         3.0          1.4         0.3     setosa
+## 47           5.1         3.8          1.6         0.2     setosa
+## 48           4.6         3.2          1.4         0.2     setosa
+## 49           5.3         3.7          1.5         0.2     setosa
+## 50           5.0         3.3          1.4         0.2     setosa
+## 51           7.0         3.2          4.7         1.4 versicolor
+## 52           6.4         3.2          4.5         1.5 versicolor
+## 53           6.9         3.1          4.9         1.5 versicolor
+## 54           5.5         2.3          4.0         1.3 versicolor
+## 55           6.5         2.8          4.6         1.5 versicolor
+## 56           5.7         2.8          4.5         1.3 versicolor
+## 57           6.3         3.3          4.7         1.6 versicolor
+## 58           4.9         2.4          3.3         1.0 versicolor
+## 59           6.6         2.9          4.6         1.3 versicolor
+## 60           5.2         2.7          3.9         1.4 versicolor
+## 61           5.0         2.0          3.5         1.0 versicolor
+## 62           5.9         3.0          4.2         1.5 versicolor
+## 63           6.0         2.2          4.0         1.0 versicolor
+## 64           6.1         2.9          4.7         1.4 versicolor
+## 65           5.6         2.9          3.6         1.3 versicolor
+## 66           6.7         3.1          4.4         1.4 versicolor
+## 67           5.6         3.0          4.5         1.5 versicolor
+## 68           5.8         2.7          4.1         1.0 versicolor
+## 69           6.2         2.2          4.5         1.5 versicolor
+## 70           5.6         2.5          3.9         1.1 versicolor
+## 71           5.9         3.2          4.8         1.8 versicolor
+## 72           6.1         2.8          4.0         1.3 versicolor
+## 73           6.3         2.5          4.9         1.5 versicolor
+## 74           6.1         2.8          4.7         1.2 versicolor
+## 75           6.4         2.9          4.3         1.3 versicolor
+## 76           6.6         3.0          4.4         1.4 versicolor
+## 77           6.8         2.8          4.8         1.4 versicolor
+## 78           6.7         3.0          5.0         1.7 versicolor
+## 79           6.0         2.9          4.5         1.5 versicolor
+## 80           5.7         2.6          3.5         1.0 versicolor
+## 81           5.5         2.4          3.8         1.1 versicolor
+## 82           5.5         2.4          3.7         1.0 versicolor
+## 83           5.8         2.7          3.9         1.2 versicolor
+## 84           6.0         2.7          5.1         1.6 versicolor
+## 85           5.4         3.0          4.5         1.5 versicolor
+## 86           6.0         3.4          4.5         1.6 versicolor
+## 87           6.7         3.1          4.7         1.5 versicolor
+## 88           6.3         2.3          4.4         1.3 versicolor
+## 89           5.6         3.0          4.1         1.3 versicolor
+## 90           5.5         2.5          4.0         1.3 versicolor
+## 91           5.5         2.6          4.4         1.2 versicolor
+## 92           6.1         3.0          4.6         1.4 versicolor
+## 93           5.8         2.6          4.0         1.2 versicolor
+## 94           5.0         2.3          3.3         1.0 versicolor
+## 95           5.6         2.7          4.2         1.3 versicolor
+## 96           5.7         3.0          4.2         1.2 versicolor
+## 97           5.7         2.9          4.2         1.3 versicolor
+## 98           6.2         2.9          4.3         1.3 versicolor
+## 99           5.1         2.5          3.0         1.1 versicolor
+## 100          5.7         2.8          4.1         1.3 versicolor
+## 101          6.3         3.3          6.0         2.5  virginica
+## 102          5.8         2.7          5.1         1.9  virginica
+## 103          7.1         3.0          5.9         2.1  virginica
+## 104          6.3         2.9          5.6         1.8  virginica
+## 105          6.5         3.0          5.8         2.2  virginica
+## 106          7.6         3.0          6.6         2.1  virginica
+## 107          4.9         2.5          4.5         1.7  virginica
+## 108          7.3         2.9          6.3         1.8  virginica
+## 109          6.7         2.5          5.8         1.8  virginica
+## 110          7.2         3.6          6.1         2.5  virginica
+## 111          6.5         3.2          5.1         2.0  virginica
+## 112          6.4         2.7          5.3         1.9  virginica
+## 113          6.8         3.0          5.5         2.1  virginica
+## 114          5.7         2.5          5.0         2.0  virginica
+## 115          5.8         2.8          5.1         2.4  virginica
+## 116          6.4         3.2          5.3         2.3  virginica
+## 117          6.5         3.0          5.5         1.8  virginica
+## 118          7.7         3.8          6.7         2.2  virginica
+## 119          7.7         2.6          6.9         2.3  virginica
+## 120          6.0         2.2          5.0         1.5  virginica
+## 121          6.9         3.2          5.7         2.3  virginica
+## 122          5.6         2.8          4.9         2.0  virginica
+## 123          7.7         2.8          6.7         2.0  virginica
+## 124          6.3         2.7          4.9         1.8  virginica
+## 125          6.7         3.3          5.7         2.1  virginica
+## 126          7.2         3.2          6.0         1.8  virginica
+## 127          6.2         2.8          4.8         1.8  virginica
+## 128          6.1         3.0          4.9         1.8  virginica
+## 129          6.4         2.8          5.6         2.1  virginica
+## 130          7.2         3.0          5.8         1.6  virginica
+## 131          7.4         2.8          6.1         1.9  virginica
+## 132          7.9         3.8          6.4         2.0  virginica
+## 133          6.4         2.8          5.6         2.2  virginica
+## 134          6.3         2.8          5.1         1.5  virginica
+## 135          6.1         2.6          5.6         1.4  virginica
+## 136          7.7         3.0          6.1         2.3  virginica
+## 137          6.3         3.4          5.6         2.4  virginica
+## 138          6.4         3.1          5.5         1.8  virginica
+## 139          6.0         3.0          4.8         1.8  virginica
+## 140          6.9         3.1          5.4         2.1  virginica
+## 141          6.7         3.1          5.6         2.4  virginica
+## 142          6.9         3.1          5.1         2.3  virginica
+## 143          5.8         2.7          5.1         1.9  virginica
+## 144          6.8         3.2          5.9         2.3  virginica
+## 145          6.7         3.3          5.7         2.5  virginica
+## 146          6.7         3.0          5.2         2.3  virginica
+## 147          6.3         2.5          5.0         1.9  virginica
+## 148          6.5         3.0          5.2         2.0  virginica
+## 149          6.2         3.4          5.4         2.3  virginica
+## 150          5.9         3.0          5.1         1.8  virginica
+</code></pre>
+
+<h2><strong>Try It!</strong> A.</h2>
+
+<ol>
+<li>View the dataset using head and tail</li>
+<li>How many rows does the data have?</li>
+<li>How many columns? What are the column names?</li>
+<li>Using the str function, how many species are in the data?</li>
+</ol>
+
+<h2>Dataframe Syntax and subsetting</h2>
+
+<p>R has many powerful subset operators and mastering them will allow you to easily perform complex operation on any kind of dataset. Allows you to manipulate data very succinctly.</p>
+
+<p>While not technically accurate, dataframes are akin to a series of vectors combined into a tabular structure. Dataframes have a particular syntax, which is an extension of vector syntax. First let&#39;s use the $ sign to call a column</p>
+
+<pre><code class="r">head(iris)
+</code></pre>
+
+<pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 1          5.1         3.5          1.4         0.2  setosa
+## 2          4.9         3.0          1.4         0.2  setosa
+## 3          4.7         3.2          1.3         0.2  setosa
+## 4          4.6         3.1          1.5         0.2  setosa
+## 5          5.0         3.6          1.4         0.2  setosa
+## 6          5.4         3.9          1.7         0.4  setosa
+</code></pre>
+
+<pre><code class="r">
+colnames(iris)
+</code></pre>
+
+<pre><code>## [1] &quot;Sepal.Length&quot; &quot;Sepal.Width&quot;  &quot;Petal.Length&quot; &quot;Petal.Width&quot; 
+## [5] &quot;Species&quot;
+</code></pre>
+
+<pre><code class="r">
+# How do we call a specific column?
+x &lt;- iris$Sepal.Length
+</code></pre>
+
+<p>We can use the same syntax as for vectors with one addiiton.  Indexing a dataframe is given by nameofdf[rows,columns], which can either be the name of the rows or columns, or the column number and row</p>
+
+<pre><code class="r">colnames(iris)
+</code></pre>
+
+<pre><code>## [1] &quot;Sepal.Length&quot; &quot;Sepal.Width&quot;  &quot;Petal.Length&quot; &quot;Petal.Width&quot; 
+## [5] &quot;Species&quot;
+</code></pre>
+
+<pre><code class="r">
+# Identical to iris$Sepal.Length
+
+iris[, &quot;Sepal.Length&quot;]
+</code></pre>
+
+<pre><code>##   [1] 5.1 4.9 4.7 4.6 5.0 5.4 4.6 5.0 4.4 4.9 5.4 4.8 4.8 4.3 5.8 5.7 5.4
+##  [18] 5.1 5.7 5.1 5.4 5.1 4.6 5.1 4.8 5.0 5.0 5.2 5.2 4.7 4.8 5.4 5.2 5.5
+##  [35] 4.9 5.0 5.5 4.9 4.4 5.1 5.0 4.5 4.4 5.0 5.1 4.8 5.1 4.6 5.3 5.0 7.0
+##  [52] 6.4 6.9 5.5 6.5 5.7 6.3 4.9 6.6 5.2 5.0 5.9 6.0 6.1 5.6 6.7 5.6 5.8
+##  [69] 6.2 5.6 5.9 6.1 6.3 6.1 6.4 6.6 6.8 6.7 6.0 5.7 5.5 5.5 5.8 6.0 5.4
+##  [86] 6.0 6.7 6.3 5.6 5.5 5.5 6.1 5.8 5.0 5.6 5.7 5.7 6.2 5.1 5.7 6.3 5.8
+## [103] 7.1 6.3 6.5 7.6 4.9 7.3 6.7 7.2 6.5 6.4 6.8 5.7 5.8 6.4 6.5 7.7 7.7
+## [120] 6.0 6.9 5.6 7.7 6.3 6.7 7.2 6.2 6.1 6.4 7.2 7.4 7.9 6.4 6.3 6.1 7.7
+## [137] 6.3 6.4 6.0 6.9 6.7 6.9 5.8 6.8 6.7 6.7 6.3 6.5 6.2 5.9
+</code></pre>
+
+<pre><code class="r">iris[, 1]
+</code></pre>
+
+<pre><code>##   [1] 5.1 4.9 4.7 4.6 5.0 5.4 4.6 5.0 4.4 4.9 5.4 4.8 4.8 4.3 5.8 5.7 5.4
+##  [18] 5.1 5.7 5.1 5.4 5.1 4.6 5.1 4.8 5.0 5.0 5.2 5.2 4.7 4.8 5.4 5.2 5.5
+##  [35] 4.9 5.0 5.5 4.9 4.4 5.1 5.0 4.5 4.4 5.0 5.1 4.8 5.1 4.6 5.3 5.0 7.0
+##  [52] 6.4 6.9 5.5 6.5 5.7 6.3 4.9 6.6 5.2 5.0 5.9 6.0 6.1 5.6 6.7 5.6 5.8
+##  [69] 6.2 5.6 5.9 6.1 6.3 6.1 6.4 6.6 6.8 6.7 6.0 5.7 5.5 5.5 5.8 6.0 5.4
+##  [86] 6.0 6.7 6.3 5.6 5.5 5.5 6.1 5.8 5.0 5.6 5.7 5.7 6.2 5.1 5.7 6.3 5.8
+## [103] 7.1 6.3 6.5 7.6 4.9 7.3 6.7 7.2 6.5 6.4 6.8 5.7 5.8 6.4 6.5 7.7 7.7
+## [120] 6.0 6.9 5.6 7.7 6.3 6.7 7.2 6.2 6.1 6.4 7.2 7.4 7.9 6.4 6.3 6.1 7.7
+## [137] 6.3 6.4 6.0 6.9 6.7 6.9 5.8 6.8 6.7 6.7 6.3 6.5 6.2 5.9
+</code></pre>
+
+<pre><code class="r">
+# dataframes can be indexed for both rows and columns remember that simple
+# ranges can be given
+1:5
+</code></pre>
+
+<pre><code>## [1] 1 2 3 4 5
+</code></pre>
+
+<pre><code class="r">
+# Get the first five rows and all columns
+iris[1:5, ]
+</code></pre>
+
+<pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 1          5.1         3.5          1.4         0.2  setosa
+## 2          4.9         3.0          1.4         0.2  setosa
+## 3          4.7         3.2          1.3         0.2  setosa
+## 4          4.6         3.1          1.5         0.2  setosa
+## 5          5.0         3.6          1.4         0.2  setosa
+</code></pre>
+
+<pre><code class="r">
+# Get all rows and the first two columns
+a &lt;- iris[, 1:2]
+head(a)
+</code></pre>
+
+<pre><code>##   Sepal.Length Sepal.Width
+## 1          5.1         3.5
+## 2          4.9         3.0
+## 3          4.7         3.2
+## 4          4.6         3.1
+## 5          5.0         3.6
+## 6          5.4         3.9
+</code></pre>
 
 <h2><strong>Try It!</strong></h2>
 
 <ol>
-<li>
-Subsetting
-=================</li>
+<li>What is the 9th entry of the Sepal.Width column?</li>
+<li>How would you get all entries for the 17th row?</li>
+<li>Return an object with the 1 4 and 7 rows of the dataframe?</li>
+<li>Use the seq command to get all odd rows in the dataset?</li>
+<li>What happens when you use negative numbers?</li>
 </ol>
 
-<p>R has many powerful subset operators and mastering them will allow you to easily perform complex operation on any kind of dataset. Allows you to manipulate data very succinctly.</p>
+<h2>Using logical statements</h2>
 
-<p>Subsetting atomic vectors</p>
+<p>An extremely helpful tool is to subset your data using logic rather than an index. Let&#39;s begin with continious numeric data.</p>
 
-<pre><code class="r">x &lt;- seq(0, 10, 1)
+<pre><code class="r"># Grab the Sepal.Width
+x &lt;- iris$Petal.Width
+
+# Historgram
+hist(x)
 </code></pre>
+
+<p><img src="data:image/png;base64,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" alt="plot of chunk unnamed-chunk-4"/> </p>
+
+<pre><code class="r">
+# Which values are greater than 1?
+logi &lt;- x &gt; 1
+
+# Return all columns based on iris$Petal.Width
+a &lt;- iris[logi, ]
+
+head(a)
+</code></pre>
+
+<pre><code>##    Sepal.Length Sepal.Width Petal.Length Petal.Width    Species
+## 51          7.0         3.2          4.7         1.4 versicolor
+## 52          6.4         3.2          4.5         1.5 versicolor
+## 53          6.9         3.1          4.9         1.5 versicolor
+## 54          5.5         2.3          4.0         1.3 versicolor
+## 55          6.5         2.8          4.6         1.5 versicolor
+## 56          5.7         2.8          4.5         1.3 versicolor
+</code></pre>
+
+<pre><code class="r">
+# Return the same column as was subsetted.
+x[logi]
+</code></pre>
+
+<pre><code>##  [1] 1.4 1.5 1.5 1.3 1.5 1.3 1.6 1.3 1.4 1.5 1.4 1.3 1.4 1.5 1.5 1.1 1.8
+## [18] 1.3 1.5 1.2 1.3 1.4 1.4 1.7 1.5 1.1 1.2 1.6 1.5 1.6 1.5 1.3 1.3 1.3
+## [35] 1.2 1.4 1.2 1.3 1.2 1.3 1.3 1.1 1.3 2.5 1.9 2.1 1.8 2.2 2.1 1.7 1.8
+## [52] 1.8 2.5 2.0 1.9 2.1 2.0 2.4 2.3 1.8 2.2 2.3 1.5 2.3 2.0 2.0 1.8 2.1
+## [69] 1.8 1.8 1.8 2.1 1.6 1.9 2.0 2.2 1.5 1.4 2.3 2.4 1.8 1.8 2.1 2.4 2.3
+## [86] 1.9 2.3 2.5 2.3 1.9 2.0 2.3 1.8
+</code></pre>
+
+<pre><code class="r">
+# Return a different column based on the subset, ie. Return all values in
+# Sepal.Length where Sepal.Width is greater than 1.
+iris[logi, &quot;Petal.Length&quot;]
+</code></pre>
+
+<pre><code>##  [1] 4.7 4.5 4.9 4.0 4.6 4.5 4.7 4.6 3.9 4.2 4.7 3.6 4.4 4.5 4.5 3.9 4.8
+## [18] 4.0 4.9 4.7 4.3 4.4 4.8 5.0 4.5 3.8 3.9 5.1 4.5 4.5 4.7 4.4 4.1 4.0
+## [35] 4.4 4.6 4.0 4.2 4.2 4.2 4.3 3.0 4.1 6.0 5.1 5.9 5.6 5.8 6.6 4.5 6.3
+## [52] 5.8 6.1 5.1 5.3 5.5 5.0 5.1 5.3 5.5 6.7 6.9 5.0 5.7 4.9 6.7 4.9 5.7
+## [69] 6.0 4.8 4.9 5.6 5.8 6.1 6.4 5.6 5.1 5.6 6.1 5.6 5.5 4.8 5.4 5.6 5.1
+## [86] 5.1 5.9 5.7 5.2 5.0 5.2 5.4 5.1
+</code></pre>
+
+<h2><strong>Try It!</strong></h2>
 
 <ol>
-<li>Using positive integers</li>
+<li>Why is iris[iris&gt;3,] a nonsensical command? </li>
+<li>What about iris[iris$Sepal.Length &gt;3]? </li>
+<li>Create a histogram of petal lengths for the entire data</li>
+<li>Subset the data for values greater than two</li>
+<li>Create a histogram of your new data</li>
 </ol>
 
-<pre><code class="r">x[1]
+<h2>Other types of logical statements </h2>
+
+<p>Many different types of logical statements can be used to subset data.</p>
+
+<p>For all types of data, if we want a specific value/character/factor we use ==</p>
+
+<pre><code class="r"># Get records with petal length of 4
+iris[iris$Petal.Length == 4, ]
 </code></pre>
 
-<pre><code>## [1] 0
+<pre><code>##    Sepal.Length Sepal.Width Petal.Length Petal.Width    Species
+## 54          5.5         2.3            4         1.3 versicolor
+## 63          6.0         2.2            4         1.0 versicolor
+## 72          6.1         2.8            4         1.3 versicolor
+## 90          5.5         2.5            4         1.3 versicolor
+## 93          5.8         2.6            4         1.2 versicolor
 </code></pre>
 
-<pre><code class="r">x[c(3, 1)]
+<pre><code class="r">
+# Get only records from the species versicolor
+iris[iris$Species == &quot;versicolor&quot;]
 </code></pre>
 
-<pre><code>## [1] 2 0
+<pre><code>## Error: undefined columns selected
 </code></pre>
+
+<p>Logical statments can be combined using &amp; (and) if you want both statements to be true, or | (or) if you want either statement to be true.</p>
+
+<pre><code class="r">iris[iris$Petal.Length &gt; 4 &amp; iris$Species == &quot;versicolor&quot;, ]
+</code></pre>
+
+<pre><code>##     Sepal.Length Sepal.Width Petal.Length Petal.Width    Species
+## 51           7.0         3.2          4.7         1.4 versicolor
+## 52           6.4         3.2          4.5         1.5 versicolor
+## 53           6.9         3.1          4.9         1.5 versicolor
+## 55           6.5         2.8          4.6         1.5 versicolor
+## 56           5.7         2.8          4.5         1.3 versicolor
+## 57           6.3         3.3          4.7         1.6 versicolor
+## 59           6.6         2.9          4.6         1.3 versicolor
+## 62           5.9         3.0          4.2         1.5 versicolor
+## 64           6.1         2.9          4.7         1.4 versicolor
+## 66           6.7         3.1          4.4         1.4 versicolor
+## 67           5.6         3.0          4.5         1.5 versicolor
+## 68           5.8         2.7          4.1         1.0 versicolor
+## 69           6.2         2.2          4.5         1.5 versicolor
+## 71           5.9         3.2          4.8         1.8 versicolor
+## 73           6.3         2.5          4.9         1.5 versicolor
+## 74           6.1         2.8          4.7         1.2 versicolor
+## 75           6.4         2.9          4.3         1.3 versicolor
+## 76           6.6         3.0          4.4         1.4 versicolor
+## 77           6.8         2.8          4.8         1.4 versicolor
+## 78           6.7         3.0          5.0         1.7 versicolor
+## 79           6.0         2.9          4.5         1.5 versicolor
+## 84           6.0         2.7          5.1         1.6 versicolor
+## 85           5.4         3.0          4.5         1.5 versicolor
+## 86           6.0         3.4          4.5         1.6 versicolor
+## 87           6.7         3.1          4.7         1.5 versicolor
+## 88           6.3         2.3          4.4         1.3 versicolor
+## 89           5.6         3.0          4.1         1.3 versicolor
+## 91           5.5         2.6          4.4         1.2 versicolor
+## 92           6.1         3.0          4.6         1.4 versicolor
+## 95           5.6         2.7          4.2         1.3 versicolor
+## 96           5.7         3.0          4.2         1.2 versicolor
+## 97           5.7         2.9          4.2         1.3 versicolor
+## 98           6.2         2.9          4.3         1.3 versicolor
+## 100          5.7         2.8          4.1         1.3 versicolor
+</code></pre>
+
+<h2><strong>Try It!</strong></h2>
+
+<p>Explain in words each of the following logical statements</p>
 
 <ol>
-<li>Using negative integers</li>
+<li><p>iris[1:4,]</p></li>
+<li><p>iris[c(1:15,),c(1,3)]</p></li>
+<li><p>iris[iris$Species == &ldquo;setosa&rdquo;,&ldquo;Petal.Width&rdquo;]</p></li>
+<li><p>What happens when you add a ! before a logical statment, 
+<em>Hint</em> compareiris[iris$Species == &ldquo;setosa&rdquo;,] with iris[!iris$Species == &ldquo;setosa&rdquo;,]</p></li>
 </ol>
-
-<pre><code class="r"># skip the first element
-x[-1]
-</code></pre>
-
-<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10
-</code></pre>
-
-<pre><code class="r"># skip the first and the fifth
-x[-c(1, 5)]
-</code></pre>
-
-<pre><code>## [1]  1  2  3  5  6  7  8  9 10
-</code></pre>
-
-<ol>
-<li>Using logical operators</li>
-</ol>
-
-<pre><code class="r">x[c(TRUE, TRUE, FALSE, FALSE)]
-</code></pre>
-
-<pre><code>## [1] 0 1 4 5 8 9
-</code></pre>
-
-<pre><code class="r"># or based on a condition
-x[x &gt; 3]
-</code></pre>
-
-<pre><code>## [1]  4  5  6  7  8  9 10
-</code></pre>
-
-<pre><code class="r">x[which(x &gt; 3)]
-</code></pre>
-
-<pre><code>## [1]  4  5  6  7  8  9 10
-</code></pre>
-
-<pre><code class="r"># Also see `which.max()` and `which.min()`
-</code></pre>
-
-<pre><code class="coffee">df &lt;- data.frame(x = 1:3, y = 3:1, z = letters[1:3])
-
-df[df$x == 2, ]
-#   x y z
-# 2 2 2 b
-df[c(1, 3), ]
-#   x y z
-# 1 1 3 a
-# 3 3 1 c
-
-# There are two ways to select columns from a data frame
-# Like a list:
-df[c(&quot;x&quot;, &quot;z&quot;)]
-#   x z
-# 1 1 a
-# 2 2 b
-# 3 3 c
-# Like a matrix
-df[, c(&quot;x&quot;, &quot;z&quot;)]
-#   x z
-# 1 1 a
-# 2 2 b
-# 3 3 c
-
-# There&#39;s an important difference if you select a simple column:
-  # matrix subsetting simplifies by default, list subsetting does not.
-  df[&quot;x&quot;]
-#   x
-# 1 1
-# 2 2
-# 3 3
-df[, &quot;x&quot;]
-# [1] 1 2 3
-</code></pre>
 
 </body>
 
