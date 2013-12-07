@@ -12,21 +12,21 @@ norm
 ```
 
 ```
-##   [1] -0.63456 -0.57886  1.68228  1.33340 -0.86267  0.93719  0.47246
-##   [8] -2.43817  0.34920  0.44248  1.01323 -0.92200  0.66717  1.81362
-##  [15] -0.22160  0.43769 -1.63710  0.02365  0.96546  1.70067  0.11775
-##  [22]  1.38804 -0.07241  0.22388  1.34210 -1.58053 -0.97429 -0.15902
-##  [29] -0.69787  2.52081  0.35395  1.01852  0.05577  1.25033 -1.10622
-##  [36]  0.10463  0.25839  0.43501 -0.92816  0.97412 -0.24990 -0.47178
-##  [43]  0.48782 -0.89487 -0.03540 -1.36953 -0.73619 -0.60991 -0.25363
-##  [50]  1.33434 -1.85498 -1.20528 -0.10509 -0.15665 -0.41716 -0.15326
-##  [57] -0.54807 -0.29925  1.53662  0.95271  1.06218 -1.11212 -0.82446
-##  [64]  1.30715  0.65951  0.94922  1.11404  1.63760 -1.74180  0.71059
-##  [71]  0.77183  0.32674 -1.23963  0.76493  0.41274 -0.78568 -0.78058
-##  [78]  0.02567  0.16915 -0.29749 -0.89506  1.13275 -0.70355  1.11972
-##  [85] -0.84441  0.45923 -2.89235 -0.16611  1.10538  0.52104 -0.39094
-##  [92] -0.89882 -1.57878 -0.70863  0.45567  0.49140  1.60069  0.06814
-##  [99]  0.60811  0.76755
+##   [1]  0.196586 -0.110681  0.797108 -0.668288  0.739388 -0.035719 -1.569451
+##   [8]  2.207760  2.199467  0.521023 -0.292680  0.649531 -0.056489  1.179443
+##  [15]  0.138877  2.737091 -0.985313  0.317825 -0.073368 -0.557140 -0.034209
+##  [22] -0.775303  1.064968  0.264040 -1.459477 -0.070681 -0.568060  1.412142
+##  [29]  0.954566 -1.032554 -0.411034  0.687007  0.228441  0.042603 -0.902655
+##  [36]  0.156936 -0.667672  0.206985  0.608406  0.511446 -2.356332  0.113570
+##  [43]  1.467215 -0.008188  0.995612  1.162154 -0.265710  0.638652  0.659287
+##  [50] -0.442589 -0.268794  0.412264  0.170900 -0.728219  0.821605  0.755927
+##  [57] -0.720495 -0.437333 -0.665503  0.917829 -0.828550  0.453521 -0.698627
+##  [64] -0.143023 -0.228888 -0.895484  2.943287 -0.023149 -0.325409 -1.002660
+##  [71] -0.498811 -1.699497  0.851027 -1.121158  0.517580  0.538983 -1.679200
+##  [78] -0.045286 -0.145989  0.947757  0.759899 -0.495219  0.093303  0.572279
+##  [85]  0.351704  0.186352 -0.224975 -0.111701 -1.330995  0.088576  0.952108
+##  [92]  0.349726  1.238222 -0.029774 -0.296338  0.299518 -0.678584 -0.372530
+##  [99]  1.335492  1.898784
 ```
 
 
@@ -36,8 +36,8 @@ norm
 2. Draw 100 random numbers from a normal distribution with a mean of 3 and an sd of 2, assign it to an object "a"
 
 3. Find the mean number if your draw, how close was it to the true mean
-4. Using the ?? tool, lookup the function for standard deviation *Hint* the ?? tool should not include spaces.
-5. Drawing on what we learned last time, if norm is a vector of 100 random normal draws, what is the syntax to get the 13th number in the vector?
+4. Using the ?? tool, lookup the function for standard deviation *Hint* the ?? tool should not include spaces in the query.
+5. Drawing on what we learned last time, if "a" is a vector of 100 random normal draws, what is the syntax to get the 13th number in the vector?
 
 Generating random samples from other distributions
 ----------------------------------------------------
@@ -69,25 +69,49 @@ For each of the distributions there are four functions which will generate funda
 An introduction to plotting - Univariate
 =====================================
 
+Histograms are the most common univariate plot. Histograms place data into "bins", and count the number of data falling into each bin. Bins are usually plotted as bars, with the x range on the x axis, and count on the y axis.
+
+
 ```r
+# Draw a thousand random normal points
+pts <- rnorm(1000)
+hist(pts)
+```
+
+![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2.png) 
+
+
+Histograms are an effective way of visualizing distributions
+
+**Try It!**
+------------
+
+12. Draw 10 random normal points and plot a histogram, then 100, then 1000, what do you notice about the plot?
+
+13. Explore atleast one other distribution, look up ?distributions *Hint remember to use the r-nameofdistribution function to pull random samples
+
+14. Plot your new distribution and compare with your neighbor.
+
+15. Draw 1000 random normals with a mean of 0 and a sd of 1. Look at the hist help screen. How do you specify the size of the bin range? Try making bins from -4 to 4, with intervals of .01, .1, and 1. *Hint* Consider using the seq() in the "breaks"" argument within hist().
+
+
+An introduction to plotting - Bivariate
+=====================================
+
+```r
+x <- seq(0, 4, 0.01)
 dens <- dnorm(x, 2, 0.5)
+plot(x, dnorm(dens, 2, 0.5), type = "l")
 ```
 
-```
-## Error: object 'x' not found
-```
-
-```r
-plot(x, dnorm(des, 2, 0.5), type = "l")
-```
-
-```
-## Error: object 'x' not found
-```
+![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3.png) 
 
 
+The base package has an immense number of plotting tools, let's look at the plot help screen
 
-# plotting the density function of a binomial distribution: Binom(30, .25)
-y <- 0:30
-plot(y, dbinom(y, 30, 0.25), type = "h")
 
+**Try It!**
+------------
+
+16. Plot your density function. Label your axis, "This is the x axis", "This is the y axis"
+17. Repeat the above seq, from 0 to 4, but make the interval .01, replot your figure, how is the plot changed?

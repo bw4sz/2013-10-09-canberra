@@ -188,21 +188,21 @@ hljs.initHighlightingOnLoad();
 norm
 </code></pre>
 
-<pre><code>##   [1] -0.63456 -0.57886  1.68228  1.33340 -0.86267  0.93719  0.47246
-##   [8] -2.43817  0.34920  0.44248  1.01323 -0.92200  0.66717  1.81362
-##  [15] -0.22160  0.43769 -1.63710  0.02365  0.96546  1.70067  0.11775
-##  [22]  1.38804 -0.07241  0.22388  1.34210 -1.58053 -0.97429 -0.15902
-##  [29] -0.69787  2.52081  0.35395  1.01852  0.05577  1.25033 -1.10622
-##  [36]  0.10463  0.25839  0.43501 -0.92816  0.97412 -0.24990 -0.47178
-##  [43]  0.48782 -0.89487 -0.03540 -1.36953 -0.73619 -0.60991 -0.25363
-##  [50]  1.33434 -1.85498 -1.20528 -0.10509 -0.15665 -0.41716 -0.15326
-##  [57] -0.54807 -0.29925  1.53662  0.95271  1.06218 -1.11212 -0.82446
-##  [64]  1.30715  0.65951  0.94922  1.11404  1.63760 -1.74180  0.71059
-##  [71]  0.77183  0.32674 -1.23963  0.76493  0.41274 -0.78568 -0.78058
-##  [78]  0.02567  0.16915 -0.29749 -0.89506  1.13275 -0.70355  1.11972
-##  [85] -0.84441  0.45923 -2.89235 -0.16611  1.10538  0.52104 -0.39094
-##  [92] -0.89882 -1.57878 -0.70863  0.45567  0.49140  1.60069  0.06814
-##  [99]  0.60811  0.76755
+<pre><code>##   [1]  0.196586 -0.110681  0.797108 -0.668288  0.739388 -0.035719 -1.569451
+##   [8]  2.207760  2.199467  0.521023 -0.292680  0.649531 -0.056489  1.179443
+##  [15]  0.138877  2.737091 -0.985313  0.317825 -0.073368 -0.557140 -0.034209
+##  [22] -0.775303  1.064968  0.264040 -1.459477 -0.070681 -0.568060  1.412142
+##  [29]  0.954566 -1.032554 -0.411034  0.687007  0.228441  0.042603 -0.902655
+##  [36]  0.156936 -0.667672  0.206985  0.608406  0.511446 -2.356332  0.113570
+##  [43]  1.467215 -0.008188  0.995612  1.162154 -0.265710  0.638652  0.659287
+##  [50] -0.442589 -0.268794  0.412264  0.170900 -0.728219  0.821605  0.755927
+##  [57] -0.720495 -0.437333 -0.665503  0.917829 -0.828550  0.453521 -0.698627
+##  [64] -0.143023 -0.228888 -0.895484  2.943287 -0.023149 -0.325409 -1.002660
+##  [71] -0.498811 -1.699497  0.851027 -1.121158  0.517580  0.538983 -1.679200
+##  [78] -0.045286 -0.145989  0.947757  0.759899 -0.495219  0.093303  0.572279
+##  [85]  0.351704  0.186352 -0.224975 -0.111701 -1.330995  0.088576  0.952108
+##  [92]  0.349726  1.238222 -0.029774 -0.296338  0.299518 -0.678584 -0.372530
+##  [99]  1.335492  1.898784
 </code></pre>
 
 <h2><strong>Try It!</strong></h2>
@@ -211,8 +211,8 @@ norm
 <li>Look up the rnorm function in help screen, what are three arguments?</li>
 <li><p>Draw 100 random numbers from a normal distribution with a mean of 3 and an sd of 2, assign it to an object &ldquo;a&rdquo;</p></li>
 <li><p>Find the mean number if your draw, how close was it to the true mean</p></li>
-<li><p>Using the ?? tool, lookup the function for standard deviation <em>Hint</em> the ?? tool should not include spaces.</p></li>
-<li><p>Drawing on what we learned last time, if norm is a vector of 100 random normal draws, what is the syntax to get the 13th number in the vector?</p></li>
+<li><p>Using the ?? tool, lookup the function for standard deviation <em>Hint</em> the ?? tool should not include spaces in the query.</p></li>
+<li><p>Drawing on what we learned last time, if &ldquo;a&rdquo; is a vector of 100 random normal draws, what is the syntax to get the 13th number in the vector?</p></li>
 </ol>
 
 <h2>Generating random samples from other distributions</h2>
@@ -245,22 +245,43 @@ norm
 
 <h1>An introduction to plotting - Univariate</h1>
 
-<pre><code class="r">dens &lt;- dnorm(x, 2, 0.5)
+<p>Histograms are the most common univariate plot. Histograms place data into &ldquo;bins&rdquo;, and count the number of data falling into each bin. Bins are usually plotted as bars, with the x range on the x axis, and count on the y axis.</p>
+
+<pre><code class="r"># Draw a thousand random normal points
+pts &lt;- rnorm(1000)
+hist(pts)
 </code></pre>
 
-<pre><code>## Error: object &#39;x&#39; not found
+<p><img src="data:image/png;base64,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" alt="plot of chunk unnamed-chunk-2"/> </p>
+
+<p>Histograms are an effective way of visualizing distributions</p>
+
+<h2><strong>Try It!</strong></h2>
+
+<ol>
+<li><p>Draw 10 random normal points and plot a histogram, then 100, then 1000, what do you notice about the plot?</p></li>
+<li><p>Explore atleast one other distribution, look up ?distributions *Hint remember to use the r-nameofdistribution function to pull random samples</p></li>
+<li><p>Plot your new distribution and compare with your neighbor.</p></li>
+<li><p>Draw 1000 random normals with a mean of 0 and a sd of 1. Look at the hist help screen. How do you specify the size of the bin range? Try making bins from -4 to 4, with intervals of .01, .1, and 1. <em>Hint</em> Consider using the seq() in the &ldquo;breaks&rdquo;&ldquo; argument within hist().</p></li>
+</ol>
+
+<h1>An introduction to plotting - Bivariate</h1>
+
+<pre><code class="r">x &lt;- seq(0, 4, 0.01)
+dens &lt;- dnorm(x, 2, 0.5)
+plot(x, dnorm(dens, 2, 0.5), type = &quot;l&quot;)
 </code></pre>
 
-<pre><code class="r">plot(x, dnorm(des, 2, 0.5), type = &quot;l&quot;)
-</code></pre>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfgAAAH4CAMAAACR9g9NAAAAflBMVEX9/v0AAAAAADkAAGUAOTkAOY8AZrU5AAA5ADk5AGU5OWU5OY85ZrU5j9plAABlADllAGVlOQBlOY9lZmVlZrVltf2POQCPOTmPOWWPtY+P29qP2/21ZgC1ZmW1/rW1/v3ajzna24/a/rXa/tra/v39tWX924/9/rX9/tr9/v06zTXOAAAAKnRSTlP//////////////////////////////////////////////////////wAyqPBcAAAACXBIWXMAAAsSAAALEgHS3X78AAANU0lEQVR4nO2djXbbxhFGA7e26rqSnbSW20itmdakxPd/wYq/JgmAXAA72Jn97j05kX1MfJjB1RILECB+WYMkv5QuAMqAeFEQLwriRUG8KIgXBfGiIF4UxIuCeFEQLwriRUG8KIgXBfGiIF4UxIuCeFEQLwriRUG8KIgXBfGiIF4UxIuCeFEQLwriRUG8KIgXBfGiIF4UxIuCeFEQLwriRUG8KIgXBfGiIF4UxIuCeFEQLwriRUG8KIgXBfGiIF4UxIuCeFEQLwriRUG8KIgXBfGiIF4UxIuCeFGmiG/AM4biJywL1iBeFMSLgnhREC8K4kVBvCiIFwXxoiBeFMSLgnhREJ+KVjuI39M061sfaMUC8Uk0x//VAuKTaE7+XweIT6E5+1EFiE+hufhZAYhPoGn9IT6IT6Dp+FN0EJ8A4nNGx6Hp+XNoEH8bxGeNjgPis0aHobnyt7gg/iaIzxsdBsTnjY5Cc/WvYUH8LS7bqLStCxCP+NzRUUB85uggtLqooy3E36LdRa19nYF4xOeODgLir7H6+H1wdBAQ383Lw/67dP7UUl/FBupoooq+po/4l4c35fWOeMT38/Lw/g/ERyPLPn51136jr2QDIT57dAwQnz06BJ091NDYdPGru55JfRXbB/F9vD5+3f5cvv8xMDoEiO/j5cv3s5/p0SFAfB+M+KBkOIFzuY9P/GLsCPS0UEFnzOqvgniD6Agg/iZ1Tu4QbxAdAcQbRAegr4P4nXHm7iq9HcRvjeP4ayC+n6rP3CG+H0Z8UAzO3CVGBwDxFtH+6W8gfGuIv8aVBsL3hvgrIN4k2j+IN4n2D+JNov2DeJNo/yDeJNo9V+uP3hzi+0G8TbR7EG8T7R7E20S7B/E20e5BvE20exBvE+2e6/XX3R3iR/6rfxDfC+Jtot2DeJto9yDeJto9iLeJdg/ibaK9c6v8uttD/Oh/dw7i+0C8UbR3EG8U7R3EG0V7B/FG0d5BvFG0c25XX3V/iJ/yCs8gvgfEW0U7B/FW0c5BvFW0cxBvFe0cxFtF+yal+JobRPzE17gF8d0g3izaN4g3i/YN4s2ifYN4s2jfIN4s2jVJtUduEPHdpNVecYeIn/4qnyC+E8TbRbsG8XbRrkG8XbRrEG8X7RrE20V7JrX0eltEfJbXOQTxXSAe8Vle5xDEd4F4xGd5nUMmi1/dNffPtT1wEPFJjxh9frO++lTRI0aTK4/b4mTxm4cJL+8re6hweuXV9pj8UGHNEV9vjykPFd6YX1S1j0e86Kwe8YjP9kpv5Dicq+758YhPn9wt3zO5C0WOw7nTn+nRfhlQeNgeGfEdDCm81iZTDucu9/HNgam1lQLxorN6xCM+62tdkUu86OSu2iYZ8Rlf6wrEt0G85pm7QXVHbZLj+DbD6q60y7345XZUf+14QYVn7hC/3otfNh82P14fO9Qz4o2qsCZB/MtvR6f/bu/J22fuEqPdgvi15qwe8ev9iH/bfW/GdfvNfFK0WxC/PorfTt1Wf8sa7RbEr4/it9fQdkzcp0R7ZWDZQbtMEv/w7vd/fu+8gnpKtFeGll1nm7vJ3duB3If1smPiPiXaK4jfIDirR/wGxGd/vRMGiGdyl+X1TmDEX4L4DYjP/nonpIjv/8h9SrRTBlcds80U8Vc+gJsS7ZThVVfZ5+Fc/XqtMrlD/BZGvMUSHkjZx/d/5D4l2imI36I3q0f8FsRbLOEBxF+A+C1y4kcUHbJPxF8wpugaGz37kOZhd5l1pmifIH4HI95omeIg/hzE7zh8SPPuSeSULeJ3HE7Zvj7eIz7nMsVJ/pDm+QPiMy5TnPQPaRZ//li/+HE1V9jp/kOa+82Prm+onhDtEsTvUZvVI34P4u2WKgviz0D8HsTbLVUWxJ+B+D1iH9KMLDlgp4z4M8aWXF+riDddriBp4hfvfyy6v+dufLRHEH9gJ/7l89Pbf6v6T9ki/sBe/Jfvb2Me8dmXK0jiW33z7mnJW3325QrC5O4UxB/QEj+64nitJopfjrl5Lt7WGF9xdb3uJ3cPA3fvKdEOQfyR46w+f7RDEH9k/1b/fJ8/2iGIP3J4q2cfb7VkKZjVn4D4I4i3XrIUaeJfH5v3//38lDXaH1MKrq3Zw7dX368+/aj+y48Q/5Pj4dyb+OrvpEH8T05H/IIRb7NsEZL38QIPI0L8T6Rm9Yj/SdJDhXtunq9tW5gtW4SU26R35+26z9xduXk+2raYVG+0Zoecq190XVV/5eb5aNtiWr2VdXv66Vzn4dyVm+cr2xSmS89P6uHcenuNdccr+m+er2xTmC49PwMO5wbdP3U72h2IP0HpcA7xJ2xn9f84/rXj+fH9D6ypbFOYLj0/KSN+uXuXf3u/b196d+XxFZVtCtOl52fIVbZdV1xeeWBNsE0xtdy62r25j69nxCP+lNvX1bevx2sO5KtyDhB/yvFu2fzR3kD8KULX1SP+lMPdsjevq2dyV1e7x9uk67+uHvGn6Ozjp1dbVb+39/G1nLlD/Bk39/HVHMcj/oyb985Vc+YO8WfonLlD/Bm39/H97wZVbYhZEuYk7Qqcb8zq50iYE+6P35Gh2FD9cgXOHsSfg/hZI2aEe+d2IP6c25dXj472BeLPuXlDxfhoXyD+HEb8rBEzwj5+S5ZaIzXMrH4H4i9A/NwhczH5KtvR0a5A/AUq316N+AtUrrJF/AUi316dp9RADfPp3I5MpQbqmFn9FsRfgvgCMbOQIP7q152Nj/YE4i+5+XVn46M9gfhLND6dy1VpnI75dG5LtkrjtDzk07l6v+4M8S00ZvWIb4H4MkH2IH6N+A4kxOcrNEzLiN+QsdAwPSN+jfguEF8syhjEI74LxBeLMgbxWeuM0jPi15nrjNI04hHfCeJLhlmCeMR3gfiSYZYgHvFdIL5smh2IR3wXiC+bZgfiEd8F4sum2YH4zGUG6Rrx2cuso23EF88zAvGI7wLxxfOMQDziu6hffP4qq+gb8R4SLUB8gEQLEB8g0QLEB0i0QF28RZE1NI54J5nZQXyMzOxMFX/lS/Bq6N9NZnYmj/jdN2KNiPYB4rtJeKt/+dzz4NkI/dvUWEHnte/jEd8D4v2k5mWy+NVd5OfHI76Hm+JfH3ePq1m2v+80QPtGJQbofPrh3P6bjTu+4ThA+1Ylxm+dEe8qNyOT9/Ht59U0B6bWZg/i+6h8Vo/4PuoWb1dh+N6TxYec3CG+F0a8t+RcID5Yci6Uz9wZFui+d+njeMsCozdf9Zk7xPfDiHeYnQWDM3eJ0cUxrc9788qzetv6gnePeJ/p00F8yPTp6Io3Ls9594gPmz8RxEfNnwjio+ZPRFa8fXWh+0e85zVMAfGB1zAFVfEzFOe6f8QHX8doEB97HaNBfOx1jEZU/Dy1Bd4CiPe/lnEgPvxaxqEpfq7S4m4CxIdYzwgQX8N6RiApfr7Kwm4DxEdZ01AUxc9YmNttgPiK1jUIxNezrkEIip+3rqBbAfGx1paOnviZy3K6FRBf3foSQXxt60tETvz8VYXcDoiPuMYU1MQXKMrldkB8latMQEx8iZo8bgfEV7vSW2iJL1OSww2B+JpXexUp8aUq8rclEF/5ivtREl+wIHfbQkl8yXq8bQvES6y8C8RLrL2NjvjC5TjbGoiXWf8FMuLLV1O+glNUxHsoxkMNR0TE+6jFRxU7NMR7KcVLHWsR8VTSRkG8m0LWjmoREO+ljh1eqqlfvJMyjjipp3bxjYsqzvBRUuXiPdTQxkNVk8V7fqiwj7HVgYPCpop3/IhRB1u3n+LFTRXv9qHCxbfsLQoXWOeIb9xrX5cucvI+3t9DhUNY31Gw1Npm9U0g7VtKFVyR+Cac9AMlKq/gcK7ZM9PqrJi5jZiTu+YUu9UUYabe5jucazIyoMHY2G20mCMeJmNwOKc3LiNS0awehoB4UXKJd3euHq7DiBcF8aJUcOYOxsBxvCjVXogB12HEi1LhhRiQArN6USzFg2fsxF/+HuSLIt88H/Gi+YgXzUe8aD7iRfMRL5qPeNH8jOIhEogXBfGiIF4UxIuCeFEQLwriRUG8KIgXJZf4l4emfTVmVlYf21f9ZUy/a5qvhvnLzqsWc3K4KjaRTOI3a118yJPVzdJ0w718flqv/vJklr/5rbXdPuvFsF/cTOI3V92bDsnnd/+yjF9upDxbDnnzt6y//lpC/OrTj+2oMcR2u63X1vXbjvjXb78Xeavf3G4RXPzr471l/OruneXmWdyX2cfHH/EvD6be17bvKG/bv4x48328/azedge/wXAOsdheST/kVzfbrP7eetZqKt7a+wy7wjIjPvpx/G7EGMp/W4HpPr6YeAgG4kVBvCiIFwXxoiBeFMSLgnhREC8K4kVBvCiIFwXxoiBeFMSLgnhREC8K4kVBvCiIFwXxoiBeFMTveDa/L8AZiN/x8uU/7cds1Qzi9ywG3YAUH8TvsfxaBI8gfs/z36V28Yjfs/r0v29SQx7xWzZ3HHY8S7NiEC8K4kVBvCiIFwXxoiBeFMSLgnhREC8K4kVBvCiIFwXxoiBeFMSLgnhREC8K4kX5P6E7An9+VwRhAAAAAElFTkSuQmCC" alt="plot of chunk unnamed-chunk-3"/> </p>
 
-<pre><code>## Error: object &#39;x&#39; not found
-</code></pre>
+<p>The base package has an immense number of plotting tools, let&#39;s look at the plot help screen</p>
 
-<h1>plotting the density function of a binomial distribution: Binom(30, .25)</h1>
+<h2><strong>Try It!</strong></h2>
 
-<p>y &lt;- 0:30
-plot(y, dbinom(y, 30, 0.25), type = &ldquo;h&rdquo;)</p>
+<ol>
+<li>Plot your density function. Label your axis, &quot;This is the x axis&rdquo;, &ldquo;This is the y axis&rdquo;</li>
+<li>Repeat the above seq, from 0 to 4, but make the interval .01, replot your figure, how is the plot changed?</li>
+</ol>
 
 </body>
 

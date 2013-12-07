@@ -16,8 +16,8 @@ norm
 2. Draw 100 random numbers from a normal distribution with a mean of 3 and an sd of 2, assign it to an object "a"
 
 3. Find the mean number if your draw, how close was it to the true mean
-4. Using the ?? tool, lookup the function for standard deviation *Hint* the ?? tool should not include spaces.
-5. Drawing on what we learned last time, if norm is a vector of 100 random normal draws, what is the syntax to get the 13th number in the vector?
+4. Using the ?? tool, lookup the function for standard deviation *Hint* the ?? tool should not include spaces in the query.
+5. Drawing on what we learned last time, if "a" is a vector of 100 random normal draws, what is the syntax to get the 13th number in the vector?
 
 Generating random samples from other distributions
 ----------------------------------------------------
@@ -48,6 +48,31 @@ For each of the distributions there are four functions which will generate funda
 
 An introduction to plotting - Univariate
 =====================================
+
+Histograms are the most common univariate plot. Histograms place data into "bins", and count the number of data falling into each bin. Bins are usually plotted as bars, with the x range on the x axis, and count on the y axis.
+
+```{r}
+#Draw a thousand random normal points
+pts<-rnorm(1000)
+hist(pts)
+```
+
+Histograms are an effective way of visualizing distributions
+
+**Try It!**
+------------
+
+12. Draw 10 random normal points and plot a histogram, then 100, then 1000, what do you notice about the plot?
+
+13. Explore atleast one other distribution, look up ?distributions *Hint remember to use the r-nameofdistribution function to pull random samples
+
+14. Plot your new distribution and compare with your neighbor.
+
+15. Draw 1000 random normals with a mean of 0 and a sd of 1. Look at the hist help screen. How do you specify the size of the bin range? Try making bins from -4 to 4, with intervals of .01, .1, and 1. *Hint* Consider using the seq() in the "breaks"" argument within hist().
+
+
+An introduction to plotting - Bivariate
+=====================================
 ```{r}
 x<-seq(0,4,.01)
 dens<-dnorm(x, 2, 0.5)
@@ -60,12 +85,5 @@ The base package has an immense number of plotting tools, let's look at the plot
 **Try It!**
 ------------
 
-12. Plot your density function. Label your axis, "This is the x axis", "This is the y axis"
-13. Repeat the above seq, from 0 to 4, but make the interval .01, replot your figure, how is the plot changed?
-
-# plotting the density function of a binomial distribution: Binom(30, .25)
-y <- 0:30
-plot(y, dbinom(y, 30, 0.25), type = "h")
-
-Histograms
---------------
+16. Plot your density function. Label your axis, "This is the x axis", "This is the y axis"
+17. Repeat the above seq, from 0 to 4, but make the interval .01, replot your figure, how is the plot changed?
