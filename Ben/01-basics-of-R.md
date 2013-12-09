@@ -269,7 +269,7 @@ You are not alone Part I - The R Help Screen and User Community
 
 ```r
 ## ss 1.1.3: Online Help
-`?`(plot  # Equivalent to help(plot) 
+`?`(mean  # Equivalent to help(mean) 
 )
 ```
 
