@@ -1,8 +1,8 @@
 01-Basics-of-R
 ========================================================
 author: Ben Weinstein
-date: 
-
+date:  
+autosize: true
 Introduction to R
 ==================
 R is a versatile, open source programming/scripting language that's useful both for statistics and data science. 
@@ -73,19 +73,15 @@ Try It!
 
 Combining objects - Vectors!
 ========================================================
-*R has 5 common data structures, we will learn today about the simplest - vectors.
-
-*Vectors are one dimensional strings of numbers, characters of objects
-*A vector is made using the function c(), explained later today.
+R has 5 common data structures, we will learn today about the simplest - vectors.
+Vectors are one dimensional strings of numbers, characters of objects. A vector is made using the function c(), explained later today.
 
 ```{r}
 #Combine numbers into a vector
-
 a<-c(3,4,5)
 a
 
 #Combine characters into a vector
-
 b<-c("q","r","s")
 b
 
@@ -93,10 +89,8 @@ b
 a<-4*7
 b<-6*5
 g<-9*2
-
 d<-c(a,b,g)
 d
-
 ```
 
 Properties of Vectors
