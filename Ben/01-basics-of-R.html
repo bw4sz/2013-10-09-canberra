@@ -401,6 +401,29 @@ mean(a)
 <pre><code></code></pre></li>
 </ol>
 
+<h2>You are not alone Part I - The R Help Screen and User Community</h2>
+
+<pre><code class="r">## ss 1.1.3: Online Help
+`?`(plot  # Equivalent to help(plot) 
+)
+</code></pre>
+
+<pre><code>## starting httpd help server ... done
+</code></pre>
+
+<pre><code class="r">
+`?`(sort  # Try, also, apropos (&#39;sor&#39;) 
+)
+# List all functions where &#39;sort&#39; is part of the name
+`?`(`?`(sort  # Note that the argument is &#39;sort&#39; 
+))
+# List functions with &#39;sort&#39; in the help page title or as an alias
+</code></pre>
+
+<h2>You are not alone Part II - The R Help Screen and User Community</h2>
+
+<p><img src="http://img78.imageshack.us/img78/196/wheelsel6.gif" alt="alt text"/></p>
+
 <p><strong>Quitting R</strong></p>
 
 <p>type in <code>quit()</code> or <code>q()</code> and answer <code>Y</code> to quit. Always remember to save scripts. For now we will not save workspaces!</p>
