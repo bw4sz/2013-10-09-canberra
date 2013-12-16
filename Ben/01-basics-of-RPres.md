@@ -3,6 +3,8 @@
 author: Ben Weinstein
 date:  
 autosize: true
+transition: none
+
 Introduction to R
 ==================
 R is a versatile, open source programming/scripting language that's useful both for statistics and data science. 
