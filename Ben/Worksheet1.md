@@ -33,10 +33,10 @@ Functions are the heart of R. They sourced files allow users to call code create
 * Input parameters or arguments which tell the function what you want to do
 * Output, either saved as a object, or returned directly into the console
 
-  8. What is the mean of vector of 1:33
-  9. What is the sum of 1 divided by 5 + 10, plus 1 divided by 6 * 46
-  10. What is the cube root of natural log (8)
-  11. What is the cube root of log based 10 (8)
+8. What is the mean of vector of 1:33
+9. What is the sum of 1 divided by 5 + 10, plus 1 divided by 6 * 46
+10. What is the cube root of natural log (8)
+11. What is the cube root of log based 10 (8)
 
 **Getting help on functions**
 
