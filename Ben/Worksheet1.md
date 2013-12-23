@@ -30,8 +30,9 @@ Functions
 Functions are the heart of R. They sourced files allow users to call code created and distributed within packages, or sent from friends! Functions have three essential parts.
 
 * A name, more accuracteuly, a namespace, which declares which function to use.
-* Input parameters or arguments which tell the function what you want to do
-* Output, either saved as a object, or returned directly into the console
+* Input parameters or arguments which tell the function what you want to do.
+* Output, either saved as a object, or returned directly into the console.
+
 
 8. What is the mean of vector of 1:33
 9. What is the sum of 1 divided by 5 + 10, plus 1 divided by 6 * 46
