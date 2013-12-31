@@ -218,7 +218,7 @@ levels(b)
 
 ```r
 # 14
-print("nteger which is used when labels are not given. It determines the number of digits used in formatting the break numbers.")
+print("Integer which is used when labels are not given. It determines the number of digits used in formatting the break numbers.")
 ```
 
 ```
