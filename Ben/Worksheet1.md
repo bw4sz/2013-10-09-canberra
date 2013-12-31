@@ -1,8 +1,8 @@
 Worksheet #1 - Basics of R
 ===========================
-The most important aspect to learn about R, and perhaps programming in general is that tasks are completed sequentially, building small steps into a larger script of code. Code is written into the script, run in the console, and plots are rendered on the right pane to visualize results.  
+The most important aspect to learn about R, and perhaps programming in general, is that tasks are completed sequentially. Large functions are objects built on small steps. Code is written into the script, run in the console, and plots are rendered on the right pane to visualize results.  
 
-The goal of this worksheet is begin enganging with R on basic levels, including computing arithmatic, saving objects, subsetting vectors. 
+The goal of this worksheet is begin enganging with R on basic levels, including computing arithmatic, saving objects, and subsetting vectors. 
 
 Basic Math
 ---------
