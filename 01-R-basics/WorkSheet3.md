@@ -37,13 +37,11 @@ mtcars[mtcars$cyl == 4 | 6, ]
 
 Bonus: Using the str() command, investigate the following brand new data type.
 
-* Given a linear model
+*Given a linear model - Extract the residuals for the fitted values 
 
 ```
 mod <- lm(mpg ~ wt, data = mtcars)
 ```
-
-Extract the residual degrees of freedom. 
 
 
 ----
