@@ -1,7 +1,7 @@
 Worksheet 3 - Data Manipulation
 --------------
 
-Today in class we coveredL
+Today in class we covered
 
 * Dataframes
 * Subsetting
