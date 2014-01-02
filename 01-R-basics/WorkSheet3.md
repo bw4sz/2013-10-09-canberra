@@ -1,6 +1,13 @@
-# Exercise for session 01
+Worksheet 3 - Data Manipulation
+--------------
 
-1. What is wrong with this code example?
+Today in class we coveredL
+
+* Dataframes
+* Subsetting
+* Logicals
+
+1. What is wrong with this code example? Answer before running.
 
 ```
 df <- data.frame(id = c("Jason","Paul","Mary", "Robert","Toby","Nina","Robin","James"), x = 1:10, y = rnorm(10))
@@ -26,6 +33,8 @@ mtcars[mtcars$cyl == 4 | 6, ]
 * How big is this dataset (number of rows and columns)?
 * Create a new `data.frame` called `small_diamonds` that only contains rows 1 through 9 and 19 through 23. You can do this in one or two steps.
 
+
+Bonus: Using the str() command, investigate the following brand new data type.
 5. Given a linear model
 
 ```
