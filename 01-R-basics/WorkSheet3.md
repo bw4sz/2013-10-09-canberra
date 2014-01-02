@@ -32,6 +32,7 @@ mtcars[mtcars$cyl == 4 | 6, ]
 
 * How big is this dataset (number of rows and columns)?
 * Create a new `data.frame` called `small_diamonds` that only contains rows 1 through 9 and 19 through 23. You can do this in one or two steps.
+*How many records of "Ideal" cut diamonds?
 
 
 Bonus: Using the str() command, investigate the following brand new data type.
