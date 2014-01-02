@@ -36,7 +36,8 @@ mtcars[mtcars$cyl == 4 | 6, ]
 
 
 Bonus: Using the str() command, investigate the following brand new data type.
-5. Given a linear model
+
+* Given a linear model
 
 ```
 mod <- lm(mpg ~ wt, data = mtcars)
