@@ -52,8 +52,6 @@ paste(sieve(10), "is prime")
 
 Now for the loops.
 
-> 7. Create a plot of the number of prime numbers from 0 -1000000, by intervals of 1000. 
-
-> 8. Plot the number of prime numbers from 0 to 1000, by intervals of 100. 
-> 9. Break the loop when the number of primes is greater than 100. 
+> 7. Plot the number of prime numbers from 0 to 1000, by intervals of 100. 
+> 8. Break the loop when the number of primes is greater than 100. 
 
