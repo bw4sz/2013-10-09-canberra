@@ -1,0 +1,63 @@
+Worksheet 5 - Data Visualization
+========================================================
+
+Let's recall the iris dataset
+
+```{r, some_data, tidy=FALSE, echo=TRUE}
+head(iris)
+
+```
+
+```{r,plyrexample , fig.width=6, fig.height=4, out.width='.75\\linewidth', fig.show='hold',  tidy=FALSE}
+iris[1:2, ]
+# Note the use of the '.' function to allow 'Species' to be used 
+# without quoting
+ddply(iris, .(Species), summarize, 
+      mean.Sep.Wid = mean(Sepal.Width, na.rm = TRUE))
+```
+
+
+```{r,reshapeexample , fig.width=6, fig.height=4, out.width='.75\\linewidth', fig.show='hold',  tidy=FALSE}
+
+iris[1:2, ]
+df  <- melt(iris, id.vars = "Species")
+df[1:2, ]
+```
+
+```{r,reshapeexample2 , fig.width=6, fig.height=4, out.width='.75\\linewidth', fig.show='hold',  tidy=FALSE}
+df[1:2, ]
+dcast(df, Species ~ variable, mean)
+```
+
+```{r,data_summary, echo=TRUE,  tidy=FALSE}
+myplot <- ggplot(data = iris, aes(x = Sepal.Length, y = Sepal.Width))
+summary(myplot)
+```
+
+```{r,first_plotb , eval=FALSE, tidy=FALSE}
+ggplot(data = iris, aes(x = Sepal.Length, y = Sepal.Width))
++ geom_point()
+
+myplot <- ggplot(data = iris, aes(x = Sepal.Length, y = Sepal.Width))
+myplot + geom_point()
+```
+
+## ----first_plot , fig.width=6, fig.height=4, out.width='.75\\linewidth', fig.show='hold', fig.align='center',  tidy=FALSE----
+ggplot(data = iris, aes(x = Sepal.Length, y = Sepal.Width)) +
+geom_point()
+
+
+## ----first_plot_size , fig.width=6, fig.height=4, out.width='.75\\linewidth', fig.show='hold', fig.align='center',  tidy=FALSE----
+ggplot(data = iris, aes(x = Sepal.Length, y = Sepal.Width)) +
+geom_point(size = 3)
+
+
+## ----first_plot_color , fig.width=6, fig.height=4, out.width='.75\\linewidth', fig.show='hold', fig.align='center',  tidy=FALSE----
+ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) +
+geom_point(size = 3)
+
+
+## ----first_plot_shape , fig.width=6, fig.height=3.5, out.width='.75\\linewidth', fig.show='hold', fig.align='center',  tidy=FALSE----
+ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) +
+geom_point(aes(shape = Species), size = 3)
+# Why aes(shape = Species)?
